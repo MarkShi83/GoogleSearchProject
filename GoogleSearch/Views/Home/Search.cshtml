@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Auto Search";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>This page will refresh it self every 4 hours, and it will trigger the search once it refresh.</div>
+
+<script language="javascript">
+    setTimeout(function(){
+        window.location.reload(1);
+    }, 4*60*1000);
+</script>

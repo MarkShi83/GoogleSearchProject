@@ -1,0 +1,36 @@
+﻿
+@model List<GoogleSearch.Models.SearchResult>
+
+@{
+    ViewData["Title"] = "Search Result";
+}
+
+<div class="text-center">
+    
+    @if ( !Model.Any() )
+    {
+        <h1>No results found</h1>
+    }
+    else
+    {
+        <h1>Search results for "@Model.FirstOrDefault().Keywords"</h1>
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <td>Keywords</td>
+                <td>SearchDateTime</td>
+                <td>Rank</td>
+                <td>Host</td>
+            </tr>
+            @foreach (var result in Model)
+            {
+                <tr>
+                    <td>@result.Keywords</td>
+                    <td>@result.SearchDateTime</td>
+                    <td>@result.Rank</td>
+                    <td>@result.Host</td>
+                </tr>
+            }
+        </table>
+    }
+    
+</div>

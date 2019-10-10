@@ -1,0 +1,34 @@
+﻿
+@model List<GoogleSearch.Models.SearchResult>
+
+@{
+    ViewData["Title"] = "Search History";
+}
+
+@if (!Model.Any())
+{
+    <h1>No results found</h1>
+}
+else
+{
+    <h1>@ViewData["Title"]</h1>
+
+    <div>The latest 100 search results will be showing here. Those data can be using for report and chart.</div>
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <td>Keywords</td>
+            <td>SearchDateTime</td>
+            <td>Rank</td>
+            <td>Host</td>
+        </tr>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.Keywords</td>
+                <td>@result.SearchDateTime</td>
+                <td>@result.Rank</td>
+                <td>@result.Host</td>
+            </tr>
+        }
+    </table>
+}
